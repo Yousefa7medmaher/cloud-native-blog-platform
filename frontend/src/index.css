@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-surface: #0a0a0b;
+  --color-surface-elevated: #141416;
+  --color-surface-hover: #1c1c1f;
+  --color-border: #2a2a2e;
+  --color-muted: #71717a;
+  --color-accent: #6366f1;
+  --color-accent-hover: #818cf8;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-surface text-zinc-100 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.prose-blog {
+  @apply text-zinc-300 leading-relaxed;
+}
+
+.prose-blog h1,
+.prose-blog h2,
+.prose-blog h3 {
+  @apply text-zinc-100 font-semibold mt-8 mb-4;
+}
+
+.prose-blog h1 {
+  @apply text-3xl;
+}
+
+.prose-blog h2 {
+  @apply text-2xl;
+}
+
+.prose-blog h3 {
+  @apply text-xl;
+}
+
+.prose-blog p {
+  @apply mb-4;
+}
+
+.prose-blog a {
+  @apply text-accent hover:text-accent-hover underline underline-offset-2;
+}
+
+.prose-blog ul,
+.prose-blog ol {
+  @apply mb-4 pl-6;
+}
+
+.prose-blog ul {
+  @apply list-disc;
+}
+
+.prose-blog ol {
+  @apply list-decimal;
+}
+
+.prose-blog blockquote {
+  @apply border-l-4 border-accent pl-4 italic text-zinc-400 my-6;
+}
+
+.prose-blog img {
+  @apply rounded-xl my-6 max-w-full;
+}
+
+.prose-blog pre {
+  @apply bg-surface-elevated p-4 rounded-xl overflow-x-auto my-6 text-sm;
+}
+
+.prose-blog code {
+  @apply bg-surface-elevated px-1.5 py-0.5 rounded text-sm text-accent-hover;
+}

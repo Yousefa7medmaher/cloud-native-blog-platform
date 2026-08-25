@@ -1,0 +1,9 @@
+terraform {
+  backend "s3" {
+    bucket         = "joo-blog-terraform-state"
+    key            = "staging/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "joo-blog-terraform-locks"
+    encrypt        = true
+  }
+}
